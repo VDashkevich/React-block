@@ -4,7 +4,15 @@ import Login from './pages/Login';
 import Registration from './pages/Registration'; 
 
 function App() {
-  return <Registration />
+  return (
+    <>
+    <div className="CardLists">
+    <CardPost/>
+    <CardPost/>
+    <CardPost/>
+    </div>
+  </>
+  )
 
   
 }

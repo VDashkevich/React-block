@@ -1,3 +1,21 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+.CardLists {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1150px;
+    height: 400px;
+    background-color: beige;
+    border: 1px solid rgb(68, 0, 184);
+    border-radius: 10px;
+    gap: 10px;
+}
 .Card {
     width: 360px;
     height: 250px;
