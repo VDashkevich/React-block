@@ -1,72 +1,98 @@
 body {
-    display: flex;
-    background-color: rgb(171, 197, 217);
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+  display: flex;
+  background-color: rgb(171, 197, 217);
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
-.ContainerLogin {
-    width: 360px;
-    height: 380px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px 30px;
-    border: 2px solid rgb(86, 99, 221);
-    background-color: white;
-    border-radius: 10px;
-
+.containerLogin {
+  width: 360px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 30px;
+  border: 2px solid rgb(86, 99, 221);
+  background-color: white;
+  border-radius: 10px;
 }
-.LogTitle {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+.logTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
-.LogTitle > h1 {
-    font-size: 32px;
-    margin: 0px;
+.logTitle_login active {
+  border-right: 3px solod black;
+}
+.logTitle > h1 {
+  font-size: 32px;
+  margin: 0px;
 }
 .active {
-    color: rgb(3, 3, 181);
+  color: rgb(3, 3, 181);
 }
-.LogInputs {
-    width: 250px;
-    height: 220px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
-    font-size: 20px;
+.logInputs {
+  width: 250px;
+  height: 320px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 20px;
 }
 input {
-    width: 242px;
-    height: 22px;
-    border-radius: 5px;
-    font-size: 14px;
-    border: 1px solid rgb(3, 3, 181);;
+  width: 242px;
+  height: 22px;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid rgb(3, 3, 181);
 }
 p {
-    margin: 0;
+  margin: 0;
 }
-.LogInputs_BtnLogin {
-    margin: 0;
-    width: 250px;
-    height: 34px;
-    border-radius: 5px;
-    background-color: rgb(3, 3, 181);
-    color: white;
-    font-size: 20px;
-    margin-top: 30px;
-}
-
-.LogReset {
-    display: flex;
-    font-size: 18px;
-    color: rgb(171, 197, 217);
-    gap: 10px;
+.logInputs_BtnLogin {
+  margin: 0;
+  width: 250px;
+  height: 34px;
+  border-radius: 5px;
+  background-color: rgb(3, 3, 181);
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
 }
 
-.LogReset_Link {
-    text-decoration: none;
+.logReset {
+  display: flex;
+  font-size: 18px;
+  color: rgb(171, 197, 217);
+  gap: 10px;
+}
+
+.logReset_Link {
+  text-decoration: none;
+}
+
+.logTitle_login {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  border-right: 4px solid black;
+  cursor: pointer;
+  font-size: 28px;
+}
+.logTitle_Reg {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 28px;
+}
+.active {
+  color: rgb(3, 3, 181);
+}
+
+.logTitle_login, 
+.logTitle_Reg:hover {
+  color: rgb(3, 3, 181);
 }

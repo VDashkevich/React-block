@@ -1,10 +1,16 @@
 import React from "react";
-import './Input.css'
+import "./Input.css";
 
-const Input = (props: any) => {
-    return ( 
-        <input className={props.className} type={props.type} />
-    );
-}
+const Input = ({className, type, text}: any) => {
+  return (
+    <>
+      <div className={className}>
+        <p>{text}</p>
+        <input type={type} />
+      </div>
 
-export default Input
+    </>
+  );
+};
+
+export default Input;

@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
-import "./Login.css";
+import "./RegistrationPage.css";
 import Input from "../../components/Input";
 
-const Login = (props: any) => {
- 
+const RegistrationPage = (props: any) => {
+
     return (
-    <div className="containerLogin">
+    <div className="containerRegistrationPage">
       <div className="logTitle">
         <button className="logTitle_login">Login</button>
         <button className="logTitle_Reg">Registration</button>
       </div>
       <div className="logInputs">
+          <Input type='text' className="logInputs_UserName" text='User name'/>
           <Input type='email' className="logInputs_Email" text='Email'/>
           <Input type='password' className="logInputs_Password" text='Password'/>
+          <Input type='password' className="logInputs_ConfPassword" text='Confirm Password'/>
         <div className="logInputs_Btn">
           <Button className="logInputs_BtnLogin" text="Login" />
         </div>
@@ -28,4 +30,4 @@ const Login = (props: any) => {
   );
 };
 
-export default Login;
+export default RegistrationPage;

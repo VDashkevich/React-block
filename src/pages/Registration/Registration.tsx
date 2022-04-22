@@ -1,18 +1,19 @@
 import React from 'react';
 import './Registration.css'
+import Button from '../../components/Button';
 
 const Registration = () => {
-    return <div className='ContainerRegistration'>
-<div className="RegTitle">
-    <h1 className="RegTitle_login active">Registration Confirmation</h1>
+    return <div className='containerRegistration'>
+<div className="regTitle">
+    <h1 className="regTitle_login active">Registration Confirmation</h1>
 </div>
-<div className="RegText">
+<div className="regText">
     <span>Please activate your accaunt with the activation link in the emain</span> 
     <a href='mailto:test@gmail.com'>test@gmail.com</a>
     <span>Please, check your email</span>
 </div>
-<div className="Reg_Btn">
-    <button className="Reg_BtnHome">Home</button>
+<div className="reg_Btn">
+    <Button text='Home'/>
 </div>
     </div>
 }
