@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import CardPost from "./components/CardPost";
 import Login from "./pages/Login";
-import Registration from "./pages/Registration";
 import CardPostList from "./components/CardPostList";
 import Button from "./components/Button";
 import Template from "./pages/Template";
 import PostPage from "./pages/PostPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import BigPostPage from "./pages/BigPostPage";
+import MainHeader from "./components/MainHeader";
+import { ThemeModeProvider } from "./context/ThemeModeProvider";
+import { Theme } from "./context/themeModeContext";
+import AutorizationPage from "./pages/AutorizationPage";
 
 const MOCK_DATA1 = [
   {
@@ -22,12 +25,18 @@ const MOCK_DATA1 = [
   },
 ];
 function App() {
+  const [theme, setTheme] = useState(Theme.Light);
+
+  const onChangeTheme = (value: Theme) => {
+    setTheme(value);
+  };
+
   return (
-    <>
+    <ThemeModeProvider theme={theme} onChangeTheme={onChangeTheme}>
       <div className="App">
-        <BigPostPage data={MOCK_DATA1}/>
+        <AutorizationPage />
       </div>
-    </>
+    </ThemeModeProvider>
   );
 }
 

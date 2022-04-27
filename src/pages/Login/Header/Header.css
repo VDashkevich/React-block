@@ -1,0 +1,33 @@
+.logTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.logTitle > h1 {
+  font-size: 32px;
+  margin: 0px;
+}
+.logTitle_login {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  border-right: 4px solid black;
+  color: black;
+  cursor: pointer;
+  font-size: 28px;
+}
+.logTitle_Reg {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 28px;
+}
+.active {
+  color: rgb(3, 3, 181);
+}
+
+.logTitle_login:hover,
+.logTitle_Reg:hover {
+  color: rgb(3, 3, 181);
+}
