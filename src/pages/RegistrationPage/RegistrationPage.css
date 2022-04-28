@@ -5,25 +5,40 @@ body {
   justify-content: center;
   margin-top: 50px;
 }
-.containerLogin {
+.containerRegistrationPage {
   width: 360px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 30px 30px;
   border: 2px solid rgb(86, 99, 221);
   background-color: white;
   border-radius: 10px;
-  gap: 20px;
+  margin-top: 20px;
+}
+.logTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.logTitle_login .active {
+  border-right: 3px solid black;
+}
+.logTitle > h1 {
+  font-size: 32px;
+  margin: 0px;
+}
+.active {
+  color: rgb(3, 3, 181);
 }
 .logInputs {
   width: 250px;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
   flex-direction: column;
   font-size: 20px;
-  gap: 20px;
 }
 input {
   width: 242px;
@@ -32,7 +47,9 @@ input {
   font-size: 14px;
   border: 1px solid rgb(3, 3, 181);
 }
-
+p {
+  margin: 0;
+}
 .logInputs_BtnLogin {
   margin: 0;
   width: 250px;
@@ -45,21 +62,53 @@ input {
 }
 
 .logReset {
+  display: flex;
   font-size: 18px;
   color: rgb(171, 197, 217);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  gap: 0px;
+  gap: 10px;
+  flex: 1;
 }
 
 .logReset_Link {
   text-decoration: none;
+}
+
+.logTitle_login {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  border-right: 4px solid black;
+  cursor: pointer;
+  font-size: 28px;
+}
+.logTitle_Reg {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 28px;
+}
+.active {
+  color: rgb(3, 3, 181);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logInputs_Btn {
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 .authorizationForm__validText {
   font-weight: bold;
   color: red;
   min-height: 20px;
   font-size: 10px;
+}
+
+.darkContainer {
+  background-color: gray;
+  color: green;
 }
