@@ -118,15 +118,12 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
   };
 
   return (
-    <form>
-      <div
-        onClick={onClickTheme}
-        className={classNames("container", {
-          ["darkContainer"]: !isLightTheme,
-        })}
-      >
-        Сменить тему
-      </div>
+    <form className={classNames(
+          {
+            ["containerRegistrationPage"]: isLightTheme,
+          },
+          { ["containerRegistrationPageDark"]: !isLightTheme }
+        )}>
       <div className="logInputs">
         <div>
           <Input
@@ -140,7 +137,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
             text="User name"
           />
           {userNameDirty && userNameErr && (
-            <div style={{ color: "red"}}>{userNameErr}</div>
+            <div style={{ color: "red" }}>{userNameErr}</div>
           )}
         </div>
         <div>

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-
+import { Theme, UseThemeContext } from "../../../context/themeModeContext";
 import "./Header.css";
 
 type HeaderProps = {
@@ -10,17 +10,33 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ onClick, activeTab }) => {
   const isLoginActive = activeTab === "login";
-
+  const { theme, onChangeTheme = () => {} } = UseThemeContext();
+  const isLightTheme = theme === Theme.Light;
+  const onClickTheme = () => {
+    onChangeTheme(Theme.Dark);
+  };
   return (
     <div className="logTitle">
       <button
-        className={classNames("logTitle_login", { ["active"]: isLoginActive })}
+        className={classNames(
+          { ["active"]: isLoginActive },
+          {
+            ["logTitle_login"]: isLightTheme,
+          },
+          { ["logTitle_loginDark"]: !isLightTheme }
+        )}
         onClick={() => onClick("login")}
       >
         Login
       </button>
       <button
-        className={classNames("logTitle_Reg", { ["active"]: !isLoginActive })}
+        className={classNames(
+          { ["active"]: !isLoginActive },
+          {
+            ["logTitle_Reg"]: isLightTheme,
+          },
+          { ["logTitle_RegDark"]: !isLightTheme }
+        )}
         onClick={() => onClick("registration")}
       >
         Registration
@@ -30,4 +46,3 @@ const Header: FC<HeaderProps> = ({ onClick, activeTab }) => {
 };
 
 export default Header;
-

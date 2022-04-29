@@ -1,21 +1,24 @@
-body {
-  display: flex;
-  background-color: rgb(171, 197, 217);
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-}
-.containerLogin {
+.containerLoginForm {
   width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px 30px;
-  border: 2px solid rgb(86, 99, 221);
   background-color: white;
-  border-radius: 10px;
   gap: 20px;
 }
+
+.containerLoginFormDark {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 30px;
+  background-color: rgb(62, 62, 62);
+  color: white;
+  gap: 20px;
+}
+
 .logInputs {
   width: 250px;
   display: flex;
@@ -25,6 +28,7 @@ body {
   font-size: 20px;
   gap: 20px;
 }
+
 input {
   width: 242px;
   height: 22px;
@@ -56,10 +60,4 @@ input {
 
 .logReset_Link {
   text-decoration: none;
-}
-.authorizationForm__validText {
-  font-weight: bold;
-  color: red;
-  min-height: 20px;
-  font-size: 10px;
 }

@@ -1,3 +1,20 @@
+
 .App {
-  text-align: center;
+  width: 1920px;
+  height: 892px;
+  background-color: rgb(171, 197, 217);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.darkApp {
+  background-color: black;
+  width: 1920px;
+  height: 892px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }

@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import "./MainHeader.css";
+import classNames from "classnames";
+import { Theme, UseThemeContext } from "../../context/themeModeContext";
 
 const MainHeader = () => {
   const [menuActive, setMenuActive] = useState(false);
   const [userActive, setUserActive] = useState(false);
+  const { theme, onChangeTheme = () => {} } = UseThemeContext();
+  const isLightTheme = theme === Theme.Light;
+  const onClickTheme = () => {
+    onChangeTheme(Theme.Dark);
+  };
 
   return (
-    <div>
+    <div className={classNames(
+      {
+        ["mainHeader"]: isLightTheme,
+      },
+      { ["mainHeaderDark"]: !isLightTheme }
+    )}>
       <nav className="navMainHeader">
         <div className="burgerBtn" onClick={() => setMenuActive(!menuActive)}>
           <span>☰</span>

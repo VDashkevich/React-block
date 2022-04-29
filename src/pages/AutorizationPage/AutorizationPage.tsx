@@ -9,10 +9,17 @@ import Header from "../Login/Header";
 import RegistrationForm from "../RegistrationPage/RegistrationPage";
 import LoginForm from "../Login/Login";
 import classNames from "classnames";
+import { Theme, UseThemeContext } from "../../context/themeModeContext";
 
 const AutorizationPage = () => {
   const [activeTab, setActiveTab] = useState("login");
   const [isConfirmed, setConfirmed] = useState(false);
+
+  const { theme, onChangeTheme = () => {} } = UseThemeContext();
+  const isLightTheme = theme === Theme.Light;
+  const onClickTheme = () => {
+    onChangeTheme(Theme.Dark);
+  };
 
   const onClickLogin = (name: string) => {
     setActiveTab(name);
@@ -23,13 +30,21 @@ const AutorizationPage = () => {
   };
 
   return !isConfirmed ? (
-    <div className="containerLogin">
+    <div
+      className={classNames(
+        {
+          ["containerLogin"]: isLightTheme,
+        },
+        { ["containerLoginDark"]: !isLightTheme }
+      )}
+    >
       <Header onClick={onClickLogin} activeTab={activeTab} />
-      {activeTab  === "login" ? (
-        <LoginForm onClickConfirm={onClickRegister}/>
+      {activeTab === "login" ? (
+        <LoginForm onClickConfirm={onClickRegister} />
       ) : (
         <RegistrationForm
-        onClick={onClickLogin}  onClickConfirm={onClickRegister}
+          onClick={onClickLogin}
+          onClickConfirm={onClickRegister}
         />
       )}
     </div>

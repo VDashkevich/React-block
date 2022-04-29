@@ -1,11 +1,9 @@
 import React, { useState, useEffect, FC } from "react";
-
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import Header from "./Header";
-import RegistrationForm from "../RegistrationPage";
-import Registration from "../Registration";
 import "./Login.css";
+import classNames from "classnames";
+import { Theme, UseThemeContext } from "../../context/themeModeContext";
 
 type LoginFormProps = {
   onClickConfirm: () => void;
@@ -17,6 +15,12 @@ const LoginForm: FC<LoginFormProps> = ({ onClickConfirm }) => {
 
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
+
+  const { theme, onChangeTheme = () => {} } = UseThemeContext();
+  const isLightTheme = theme === Theme.Light;
+  const onClickTheme = () => {
+    onChangeTheme(Theme.Dark);
+  };
 
   const [emailErr, setEmailErr] = useState("This field must not be empty");
   const [passwordErr, setPasswordErr] = useState(
@@ -70,56 +74,65 @@ const LoginForm: FC<LoginFormProps> = ({ onClickConfirm }) => {
   };
 
   return (
-    <form className="logInputs">
-      <div>
-        <Input
-          type="email"
-          className="logInputs_Email"
-          text="Email"
-          placeholder={"Enter your email"}
-          value={email}
-          onBlur={(e: any) => blurHandler(e)}
-          onChange={(e: any) => emailHandler(e)}
-          name="email"
-        />
-        {emailDirty && emailErr && (
-          <div style={{ color: "red" }}>{emailErr}</div>
-        )}
-      </div>
-      <div>
-        <Input
-          type="password"
-          className="logInputs_Password"
-          text="Password"
-          placeholder={"Enter your password"}
-          value={password}
-          onBlur={(e: any) => blurHandler(e)}
-          onChange={(e: any) => passwordHandler(e)}
-          name="password"
-        />
-        {passwordDirty && passwordErr && (
-          <div style={{ color: "red" }}>{passwordErr}</div>
-        )}
-      </div>
-      <div className="logInputs_Btn">
-        <Button
-          className="logInputs_BtnLogin"
-          text="Login"
-          onClick={() => {}}
-          disabled={!formValid}
-        />
-      </div>
-      <div className="logReset">
+    <div
+      className={classNames(
+        {
+          ["containerLoginForm"]: isLightTheme,
+        },
+        { ["containerLoginFormDark"]: !isLightTheme }
+      )}
+    >
+      <form className="logInputs">
         <div>
-          <p className="logReset_Text">Forgot your password?</p>
+          <Input
+            type="email"
+            className="logInputs_Email"
+            text="Email"
+            placeholder={"Enter your email"}
+            value={email}
+            onBlur={(e: any) => blurHandler(e)}
+            onChange={(e: any) => emailHandler(e)}
+            name="email"
+          />
+          {emailDirty && emailErr && (
+            <div style={{ color: "red" }}>{emailErr}</div>
+          )}
         </div>
         <div>
-          <a href="#" className="logReset_Link">
-            Reset Password
-          </a>
+          <Input
+            type="password"
+            className="logInputs_Password"
+            text="Password"
+            placeholder={"Enter your password"}
+            value={password}
+            onBlur={(e: any) => blurHandler(e)}
+            onChange={(e: any) => passwordHandler(e)}
+            name="password"
+          />
+          {passwordDirty && passwordErr && (
+            <div style={{ color: "red" }}>{passwordErr}</div>
+          )}
         </div>
-      </div>
-    </form>
+        <div className="logInputs_Btn">
+          <Button
+            className="logInputs_BtnLogin"
+            text="Login"
+            onClick={() => {}}
+            disabled={!formValid}
+          />
+        </div>
+        <div className="logReset">
+          <div>
+            <p className="logReset_Text">Forgot your password?</p>
+          </div>
+          <div>
+            <a href="#" className="logReset_Link">
+              Reset Password
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

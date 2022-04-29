@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 import CardPost from "./components/CardPost";
 import Login from "./pages/Login";
 import CardPostList from "./components/CardPostList";
@@ -9,8 +10,11 @@ import RegistrationPage from "./pages/RegistrationPage";
 import BigPostPage from "./pages/BigPostPage";
 import MainHeader from "./components/MainHeader";
 import { ThemeModeProvider } from "./context/ThemeModeProvider";
-import { Theme } from "./context/themeModeContext";
+import { Theme, UseThemeContext } from "./context/themeModeContext";
 import AutorizationPage from "./pages/AutorizationPage";
+import Toggle from "./components/Toggle";
+import classNames from "classnames";
+import Registration from "./pages/Registration";
 
 const MOCK_DATA1 = [
   {
@@ -30,11 +34,21 @@ function App() {
   const onChangeTheme = (value: Theme) => {
     setTheme(value);
   };
+  const isLightTheme = theme === Theme.Light;
 
   return (
     <ThemeModeProvider theme={theme} onChangeTheme={onChangeTheme}>
-      <div className="App">
+      <div
+        className={classNames(
+          {
+            ["App"]: isLightTheme,
+          },
+          { ["darkApp"]: !isLightTheme }
+        )}
+      >
+        <MainHeader/>
         <AutorizationPage />
+        <Toggle />
       </div>
     </ThemeModeProvider>
   );

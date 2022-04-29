@@ -1,12 +1,19 @@
+.mainHeader {
+  background-color: white;
+}
+.mainHeaderDark {
+  background-color: rgb(0, 0, 0);
+}
 .navMainHeader {
-  width: 100%;
+  width: 1920px;
   height: 100px;
   border-bottom: 1px solid #1474ff;
+  position: static;
 }
 .userName {
   position: absolute;
   left: 8rem;
-  top: 6px;
+  top: 26px;
   color: #1474ff;
   cursor: pointer;
   font-size: 20px;

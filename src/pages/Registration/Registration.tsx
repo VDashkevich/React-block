@@ -1,10 +1,24 @@
 import React from "react";
 import "./Registration.css";
 import Button from "../../components/Button";
+import { Theme, UseThemeContext } from "../../context/themeModeContext";
+import classNames from "classnames";
 
 const Registration = () => {
+  const { theme, onChangeTheme = () => {} } = UseThemeContext();
+  const isLightTheme = theme === Theme.Light;
+  const onClickTheme = () => {
+    onChangeTheme(Theme.Dark);
+  };
+
   return (
-    <div className="containerRegistration">
+    <div 
+    className={classNames(
+      {
+        ["containerRegistration"]: isLightTheme,
+      },
+      { ["containerRegistrationDark"]: !isLightTheme }
+    )}>
       <div className="regTitle">
         <h1 className="regTitle_login active">Registration Confirmation</h1>
       </div>
