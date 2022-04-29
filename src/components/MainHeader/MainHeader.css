@@ -1,0 +1,106 @@
+.mainHeader {
+  background-color: white;
+}
+.mainHeaderDark {
+  background-color: rgb(0, 0, 0);
+}
+.navMainHeader {
+  width: 1920px;
+  height: 100px;
+  border-bottom: 1px solid #1474ff;
+  position: static;
+}
+.userName {
+  position: absolute;
+  left: 8rem;
+  top: 26px;
+  color: #1474ff;
+  cursor: pointer;
+  font-size: 20px;
+}
+.burgerBtn {
+  position: absolute;
+  left: 6rem;
+  top: 26px;
+  color: #1474ff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  background-color: #1474ff;
+  height: 110px;
+  position: relative;
+}
+
+.content h1 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 40px;
+}
+
+.contentP {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 14px;
+}
+
+.addPost {
+  background-color: #1474ff;
+  border: none;
+  color: #fff;
+  margin: 5px 15px 0 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logOut {
+  background-color: #1474ff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.done {
+  position: absolute;
+  left: 10rem;
+  top: 1rem;
+  background-color: #1474ff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.userLogin {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  background-color: #1474ff;
+  height: 110px;
+  position: relative;
+}
+
+.userWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 1000px 0 0;
+  align-items: baseline;
+}
+
+.userWrap button {
+  background-color: #1474ff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.d-none {
+  display: none;
+}
