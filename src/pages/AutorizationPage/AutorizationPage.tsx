@@ -29,7 +29,7 @@ const AutorizationPage = () => {
     setConfirmed(true);
   };
 
-  return !isConfirmed ? (
+  return (
     <div
       className={classNames(
         {
@@ -48,8 +48,6 @@ const AutorizationPage = () => {
         />
       )}
     </div>
-  ) : (
-    <Registration />
   );
 };
 

@@ -11,6 +11,10 @@ const Toggle = () => {
   const onClickThemeLight = () => {
     onChangeTheme(Theme.Light);
   };
+  const onClickTheme = () => {
+    onChangeTheme(theme === "light" ? Theme.Dark : Theme.Light);
+    // console.log(theme)
+    };
 
   return (
     <div className="form_toggle" >

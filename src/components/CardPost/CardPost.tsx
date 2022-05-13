@@ -1,9 +1,10 @@
-import React from "react";
 import "./CardPost.css";
+import React, { FC, useState } from "react";
+import classnames from "classnames";
 
-const CardPost = ({ image, title, text, date }: any) => {
+const CardPost = ({ id, image, title, text, date }: any) => {
   return (
-    <div className="card">
+    <div className="card" key={id}>
       <img className="imageCard" src={image} />
       <h1 className="titleCard">{title}</h1>
       <p className="textCard">{text}</p>

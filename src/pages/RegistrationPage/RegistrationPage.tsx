@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import "./RegistrationPage.css";
 import Input from "../../components/Input";
 import { Theme, UseThemeContext } from "../../context/themeModeContext";
+import { useNavigate } from "react-router";
 
 type RegistrationFormProps = {
   onClick: (name: string) => void;
@@ -20,6 +21,10 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
     onChangeTheme(Theme.Dark);
   };
 
+  const navigate = useNavigate();
+  const onSubmit = () => {
+    navigate("/confirm", { state: { email } });
+  };
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -118,12 +123,14 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
   };
 
   return (
-    <form className={classNames(
-          {
-            ["containerRegistrationPage"]: isLightTheme,
-          },
-          { ["containerRegistrationPageDark"]: !isLightTheme }
-        )}>
+    <form
+      className={classNames(
+        {
+          ["containerRegistrationPage"]: isLightTheme,
+        },
+        { ["containerRegistrationPageDark"]: !isLightTheme }
+      )}
+    >
       <div className="logInputs">
         <div>
           <Input
@@ -190,6 +197,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
             disabled={!formValid}
             className="logInputs_BtnLogin"
             text="Registration"
+            onClick={onSubmit}
           />
         </div>
       </div>

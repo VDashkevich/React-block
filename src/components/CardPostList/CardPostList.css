@@ -5,9 +5,35 @@
   justify-content: space-between;
   max-width: 1200px;
   min-height: 400px;
-  background-color: beige;
+  background-color: rgb(95, 107, 146);
   border: 1px solid rgb(68, 0, 184);
   border-radius: 10px;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.titleContainer {
+  height: 140px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.headerTitle {
+  margin: 0;
+}
+.btnAny {
+  margin: 0;
+  margin-top: 0px;
+}
+
+.darktitleContainer {
+  background-color: rgb(0, 0, 0);
+  height: 140px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
 }
