@@ -1,11 +1,10 @@
 input {
-  width: 242px;
-  height: 22px;
-  border-radius: 5px;
-  font-size: 14px;
-  border: 1px solid rgb(3, 3, 181);
-}
-
-p {
-  margin: 0;
+  width: 234px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 15px;
+  font-size: 16px;
+  border: solid 2px #4c394f;
+  border-radius: 8px;
 }

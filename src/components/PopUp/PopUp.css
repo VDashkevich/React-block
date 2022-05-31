@@ -1,0 +1,31 @@
+.popUp {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.popUpContainer {
+  max-width: 600px;
+  max-height: 600px;
+  padding: 20px;
+  margin: 15% auto;
+  background-color: #283D3B;
+  border: solid 3px #197278;
+  border-radius: 8px;
+  text-align: center;
+}
+.popUpClose {
+  color: rgb(238, 238, 238);
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+}
+.popUpClose:hover {
+  color: black;
+}
+.fa-xmark-large {
+  color: #2e1a1e;
+}

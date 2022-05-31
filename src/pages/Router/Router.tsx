@@ -1,38 +1,33 @@
 import React from "react";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import MainHeader from "../../components/MainHeader";
-import CardPostList from "../../components/CardPostList";
-import AutorizationPage from "../AutorizationPage";
-import Registration from "../Registration";
-import PostPage from "../PostPage";
-import CardPost from "../../components/CardPost";
-
+import { useSelector } from "react-redux";
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import HeaderPages from "../../components/HeaderPages";
+import Authorization from "../Autorization";
+import Confirmation from "../Confirmation";
+import ContentTitle from "../ContentTitle";
+import Information from "../Information";
+import MyPosts from "../MyPosts";
+import { AuthSelector } from "../../redux/reducers/authReducer";
 
 const Router = () => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const isLoggedIn = useSelector(AuthSelector.getLogStatus);
+
   return (
     <BrowserRouter>
       {isLoggedIn ? (
         <Routes>
-          <Route path={"/"} element={<MainHeader />}>
-            <Route
-              path={"cards-list"}
-              element={<CardPostList />}
-            />
-            <Route
-              path={"autorization"}
-              element={<AutorizationPage/>}
-            />
-            <Route
-              path={"cards-list/:id"}
-              element={<PostPage/>}
-            />
+          <Route path={"/"} element={<HeaderPages />}>
+            <Route path={"/confirm"} element={<Confirmation />} />
+            <Route path={"/cards-list"} element={<MyPosts />}></Route>
+            <Route path={"/cards-list/:id"} element={<ContentTitle />} />
+            <Route path={"/info"} element={<Information />}></Route>
           </Route>
+          <Route path={"*"} element={<Navigate to={"/cards-list"} replace />} />
         </Routes>
       ) : (
         <Routes>
-            <Route path={"/auth"} element={<AutorizationPage />}/>
-            <Route path={"/confirm"} element={<Registration />}/>
+          <Route path={"/auth"} element={<Authorization />} />
+          <Route path={"*"} element={<Navigate to={"/auth"} replace />} />
         </Routes>
       )}
     </BrowserRouter>

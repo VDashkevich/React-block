@@ -1,41 +1,32 @@
-body {
-    display: flex;
-    background-color: rgb(171, 197, 217);
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+.template {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
-.containerTemplate {
-    width: 460px;
-    height: 380px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px 30px;
-    border: 2px solid rgb(86, 99, 221);
-    background-color: white;
-    border-radius: 10px;
-    color: black;
+.templateContainer {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  flex-direction: column;
+}
+.title {
+  font-size: 26px;
+  color: blue;
+}
 
+.bodyDark {
+  background-color: blue;
 }
-.tempTitle {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    color: black;
+
+.titleDark {
+  font-size: 26px;
+  color: white;
 }
-.tempText {
-    width: 350px;
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
+.templateBodyDark {
+  color: white;
 }
-span {
-   text-align: center;
-   color: black;
+.buttonDark {
+  background-color: rgb(21 21 180);
+  border: none;
 }

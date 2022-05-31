@@ -1,22 +1,111 @@
-body {
-  min-height: 100%;
-}
 .App {
-  min-width: 100vh;
-  min-height: 100vh;
-  background-color: rgb(171, 197, 217);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  text-align: center;
 }
 
-.darkApp {
-  background-color: black;
-  min-width: 100vh;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #EDDDD4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.darkContainer,
+.darkContainer a,
+.darkContainer span i {
+  background-color: #283D3B;
+  color: #EDDDD4;
+}
+.container,
+.container a,
+.container span i {
+  background-color: #EDDDD4;
+  color: #197278;
+}
+.darkContainer h1,
+h2 {
+  color: #772E25;
+}
+.container h1,
+h2 {
+  color: #772E25;
+}
+.buttonDark {
+  background-color: #772E25;
+  border: none;
+  width: 234px;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.btnTitleActiveDark {
+  color: #C44536;
+}
+.darkCard {
+  background-color: #197278;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  min-height: 340px;
+  border: solid 3px grey;
+  padding: 25px;
+  border-radius: 8px;
+  margin: 15px;
+}
+.darkCard span {
+  background-color: #197278;
+  color: white;
+}
+.darkHeader span,
+.darkHeader span i,
+.darkHeader a {
+  color: #d5ddef;
+}
+.headerLight {
+  background-color: #d5ddef;
+  color: #2e1a1e;
+}
+.darkHeader {
+  background-color: #772E25;
+  color: #197278;
+}
+.cardLight {
+  background-color: #d5ddef;
+}
+a {
+  text-decoration: none;
 }

@@ -1,21 +1,20 @@
-import React from 'react';
-import './TemplateDark.css'
-import './Template.css'
+import React from "react";
+import Button from "../../components/Button";
+import "./Template.css";
 
-import Button from '../../components/Button';
-
-const Template = () => {
-    return <div className='containerTemplate'>
-<div className="tempTitle">
-    <h1 className="regTitle_login active">Template title</h1>
-</div>
-<div className="tempText">
-    <span>Template texty</span> 
-</div>
-<div className="temp_Btn">
-    <Button text='button'/>
-</div>
+const Template = (props: any) => {
+  return (
+    <div className="template">
+      <div className="icon-menu">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/menu-rounded.png" />
+      </div>
+      <div className="templateContainer">
+        <h1 className="title">Template title</h1>
+        <p className="templateBody">Template body</p>
+        <Button className={"button button"} btnContent={"button"} onClick={() =>{}}/>
+      </div>
     </div>
-}
+  );
+};
 
-export default Template
+export default Template;

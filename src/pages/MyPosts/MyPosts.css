@@ -1,0 +1,18 @@
+.myPosts {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-content: center;
+  align-items: center;
+}
+.headerTitle {
+  font-size: 36px;
+}
+.titlePostsContainer {
+  display: flex;
+  align-items: center;
+}
+.postsTabs {
+  display: flex;
+}

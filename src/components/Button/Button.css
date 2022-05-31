@@ -1,11 +1,93 @@
-.defButton {
-    margin: 0;
-    width: 250px;
-    height: 34px;
-    border-radius: 5px;
-    background-color: rgb(3, 3, 181);
-    color: white;
-    font-size: 20px;
-    margin-top: 30px;
-    cursor: pointer;
+.button {
+  width: 230px;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #c44536;
+  color: aliceblue;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btnTitle {
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  color: gray;
+  background-color: transparent;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.btnReset {
+  background-color: transparent;
+  color: #772e25;
+  border: none;
+  text-align: start;
+  cursor: pointer;
+  font-size: 16px;
+  font-style: initial;
+}
+.btnAny {
+  height: 28px;
+  margin: 6px 15px;
+  padding: 4px 15px;
+  font-size: 14px;
+  background-color: #772e25;
+  color: aliceblue;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btnRegistration {
+  margin-left: 15px;
+  border: none;
+}
+.btnLogin {
+  border-bottom: none;
+  border-left: none;
+  border-top: none;
+  border-right: 3px solid gray;
+  padding-right: 15px;
+}
+
+.btnTitleActive {
+  color: #c44536;
+}
+.btnTitleDark {
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  color: gray;
+  background-color: transparent;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.btnTabDark {
+  margin-right: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #197278;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btnTab {
+  margin-right: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: gray;
+  color: aliceblue;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btnPostTab {
+  width: 85px;
+  height: 40px;
+}
+
+.btnTabActive {
+  background-color: #c44536;
 }

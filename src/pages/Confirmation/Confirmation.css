@@ -1,0 +1,25 @@
+.confirmation {
+  padding: 100px;
+  height: 100vh;
+}
+.iconMenu {
+  margin: 35px;
+}
+.confirmationMessage {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.confirmationContainer {
+  margin: 0px auto;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 3px #197278;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 26px;
+  color: #2e1a1e;
+}

@@ -1,19 +1,22 @@
 import React, { FC } from "react";
-import classNames from "classnames";
-
 import "./Button.css";
 
 type ButtonProps = {
-  text: string;
   onClick?: () => void;
   className?: string;
-  disabled?:boolean;
+  btnContent: any;
+  disabled?: boolean;
 };
 
-const Button: FC<ButtonProps> = ({ text, onClick, className, disabled }) => {
+const Button: FC<ButtonProps> = ({
+  className,
+  onClick,
+  btnContent,
+  disabled,
+}) => {
   return (
-    <button disabled={disabled} className={classNames("defButton", className)} onClick={onClick}>
-      {text}
+    <button disabled={disabled} className={className} onClick={onClick}>
+      {btnContent}
     </button>
   );
 };

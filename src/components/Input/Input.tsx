@@ -1,39 +1,32 @@
-import React, { FC } from "react";
+import React, { FC, FocusEventHandler } from "react";
 import "./Input.css";
 
 type InputProps = {
-  type: string;
-  className: string;
-  placeholder: string;
-  value?: string;
-  onChange?: (event: any) => void;
-  onBlur?: (event: any) => void;
+  value: string;
   name: string;
+  onChange?: (value: any) => void;
+  type: string;
+  className?: string;
+  onBlur?: (e: FocusEventHandler<HTMLInputElement> | undefined) => void;
 };
 
-const Input = ({
-  onBlur,
-  className,
-  type,
-  text,
-  onChange,
-  placeholder,
+const Input: FC<InputProps> = ({
   value,
   name,
+  onChange,
+  type,
+  className,
+  onBlur,
 }: any) => {
   return (
-    <div className={className}>
-      <p>{text}</p>
-      <input
-        type={type}
-        className={className}
-        placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        value={value}
-        name={name}
-      />
-    </div>
+    <input
+      value={value}
+      name={name}
+      type={type}
+      onChange={onChange}
+      className={className}
+      onBlur={onBlur}
+    />
   );
 };
 

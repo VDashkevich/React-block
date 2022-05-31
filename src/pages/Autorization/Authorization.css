@@ -1,0 +1,33 @@
+.login {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+.dash {
+  margin: 0 10px;
+  font-weight: bold;
+}
+.iconMenu {
+  margin: 35px;
+}
+.titleContainer {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.resetLogin {
+  margin-top: 25px;
+  color: #c44536;
+}
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  align-items: center;
+  width: 500px;
+  height: 100vh;
+  border: solid 3px #197278;
+  border-radius: 8px;
+}
