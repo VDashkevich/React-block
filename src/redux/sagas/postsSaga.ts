@@ -1,7 +1,7 @@
 import { all, takeLatest, takeEvery, put, call } from "redux-saga/effects";
 
 import { PayloadAction } from "@reduxjs/toolkit";
-import { RegisterUser, setLodStatus } from "../reducers/authReducer";
+import { RegisterUser, setLogStatus } from "../reducers/authReducer";
 import {
   setPosts,
   setPost,

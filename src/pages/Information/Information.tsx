@@ -26,17 +26,15 @@ const Information = () => {
         break;
     }
   };
-
-  const MOCK_DATA = [
-    "!!!!!!!!!!",
-    "@@@@@@@@@@@@@@@@@@@@@@@",
-    "###########################",
-  ];
-
   const TABS = [
     { tabName: "Post 1", id: "tab1" },
     { tabName: "Post 2", id: "tab2" },
     { tabName: "Post 3", id: "tab3" },
+  ];
+  const MOCK_DATA = [
+    "!!!!!!!!!!",
+    "@@@@@@@@@@@@@@@@@@@@@@@",
+    "###########################",
   ];
 
   return (

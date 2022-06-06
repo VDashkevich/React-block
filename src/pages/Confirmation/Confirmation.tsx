@@ -4,12 +4,14 @@ import "./Confirmation.css";
 import classnames from "classnames";
 import { Theme, UseThemeContext } from "./../../context/themeModeContext";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AuthSelector } from "../../redux/reducers/authReducer";
 
 const Confirmation = () => {
   const { theme } = UseThemeContext();
   const isLightTheme = theme === Theme.Light;
 
-  const location: any = useLocation();
+  const email = useSelector(AuthSelector.getTempMail)
 
   const onHomeClick = () => {
     localStorage.setItem("isLoggedIn", "true");

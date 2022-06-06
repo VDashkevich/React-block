@@ -1,4 +1,10 @@
 import { create } from "apisauce";
+
+type UserType = {
+  username: string;
+  password: string;
+  email: string;
+};
 const API = create({
   baseURL: "https://studapi.teachmeskills.by",
 });
@@ -10,4 +16,8 @@ const getSinglePost = (id: string) => {
   return API.get(`/blog/posts/${id}/`);
 };
 
-export { getPosts, getSinglePost };
+const registerUser = (userData: UserType) => {
+  return API.post('/auth/users/', userData)
+}
+
+export { getPosts, getSinglePost, registerUser };

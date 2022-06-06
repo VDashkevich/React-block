@@ -16,16 +16,14 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
   const navigate = useNavigate();
   const { theme } = UseThemeContext();
   const isLightTheme = theme === Theme.Light;
-
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   const [userNameDirty, setUserNameDirty] = useState(false);
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [confirmPasswordDirty, setConfirmPasswordDirty] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const [userNameErr, setUserNameErr] = useState(
     "This field must not be empty"
@@ -117,8 +115,15 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
   };
 
   const onSubmit = () => {
+    const callback = () => {
+      navigate("/confirm", {
+        state: {
+          email,
+        },
+      });
+    };
     dispatch(
-      registerUser({ name: userName, password: password, email: email })
+      registerUser({ name: userName, password: password, email: email, callback })
     );
 
     navigate("/confirm", {

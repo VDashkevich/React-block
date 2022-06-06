@@ -47,7 +47,6 @@ const PostCard: FC<PostCardProps> = ({
   };
 
   const handleButtonClick = (action: string) => {
-
     if (action === LikeStatus.Like || action === LikeStatus.Dislike) {
       dispatch(setLikePost({ id, action }));
     } else if (action === LikeStatus.Save || action === "unset") {

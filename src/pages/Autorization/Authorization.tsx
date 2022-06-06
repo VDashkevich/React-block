@@ -4,8 +4,8 @@ import "./Authorization.css";
 import FormLogin from "../../components/FormLogin";
 import FormRegistration from "../../components/FormRegistration";
 import HeaderAuth from "../../components/HeaderAuth";
-import { Theme, UseThemeContext } from "./../../context/themeModeContext";
 import ToggleSwitch from "../../components/ToggleSwitch";
+import { Theme, UseThemeContext } from "./../../context/themeModeContext";
 
 const Authorization = () => {
   const { theme } = UseThemeContext();

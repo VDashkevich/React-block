@@ -146,6 +146,8 @@
 //   });
 
 //   return allCurrencyArray;
+//   let currencyArray = countries.map((item) => item.currency_name);
+//   return currencyArray;
 // };
 // // export default getCurrencyArray;
 

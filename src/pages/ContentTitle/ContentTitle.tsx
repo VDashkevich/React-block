@@ -10,7 +10,7 @@ import {
   loadPost,
   setSinglePostLoading,
 } from "../../redux/reducers/postsReducer";
-import Lottie from 'react-lottie';
+import Lottie from "react-lottie";
 import animationData from "../../components/Lotties/LoadingAnimation.json";
 
 const ContentTitle = () => {
