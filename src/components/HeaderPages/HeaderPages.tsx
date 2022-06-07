@@ -5,10 +5,13 @@ import classnames from "classnames";
 import { Theme, UseThemeContext } from "./../../context/themeModeContext";
 import ToggleSwitch from "../ToggleSwitch";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AuthSelector } from "../../redux/reducers/authReducer";
 
 const HeaderPages = () => {
   const { theme } = UseThemeContext();
   const isLightTheme = theme === Theme.Light;
+  const authUserName = useSelector(AuthSelector.getAuthUserName);
 
   return (
     <div>

@@ -16,14 +16,16 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
   const navigate = useNavigate();
   const { theme } = UseThemeContext();
   const isLightTheme = theme === Theme.Light;
-  const [userNameDirty, setUserNameDirty] = useState(false);
-  const [emailDirty, setEmailDirty] = useState(false);
-  const [passwordDirty, setPasswordDirty] = useState(false);
-  const [confirmPasswordDirty, setConfirmPasswordDirty] = useState(false);
+
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [userNameDirty, setUserNameDirty] = useState(false);
+  const [emailDirty, setEmailDirty] = useState(false);
+  const [passwordDirty, setPasswordDirty] = useState(false);
+  const [confirmPasswordDirty, setConfirmPasswordDirty] = useState(false);
 
   const [userNameErr, setUserNameErr] = useState(
     "This field must not be empty"
@@ -48,11 +50,11 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
 
   const dispatch = useDispatch();
 
-  const userNameHandler = (e: any) => {
-    setUserName(e.target.value);
-    if (e.target.value.length < 2) {
+   const userNameHandler = (event: any) => {
+    setUserName(event.target.value);
+    if (event.target.value.length < 2) {
       setUserNameErr("Name must contain at least 2 symbols");
-      if (!e.target.value) {
+      if (!event.target.value) {
         setUserNameErr("This field must not be empty");
       }
     } else {
@@ -60,23 +62,23 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
     }
   };
 
-  const emailHandler = (e: any) => {
-    setEmail(e.target.value);
+  const emailHandler = (event: any) => {
+    setEmail(event.target.value);
     const re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(String(e.target.value).toLowerCase())) {
+    if (!re.test(String(event.target.value).toLowerCase())) {
       setEmailErr("Email is not correct");
     } else {
       setEmailErr("");
     }
   };
 
-  const passwordHandler = (e: any) => {
-    setPassword(e.target.value);
+  const passwordHandler = (event: any) => {
+    setPassword(event.target.value);
 
-    if (e.target.value.length < 8 || e.target.value.length > 15) {
+    if (event.target.value.length < 8 || event.target.value.length > 15) {
       setPasswordErr("Password must contain at least 8 and no more than 15");
-      if (!e.target.value) {
+      if (!event.target.value) {
         setPasswordErr("This field must not be empty");
       }
     } else {
@@ -84,11 +86,11 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
     }
   };
 
-  const confirmPasswordHandler = (e: any) => {
-    setConfirmPassword(e.target.value);
-    if (e.target.value !== password) {
+  const confirmPasswordHandler = (event: any) => {
+    setConfirmPassword(event.target.value);
+    if (event.target.value !== password) {
       setConfirmPasswordErr("Password not confirmed");
-      if (!e.target.value) {
+      if (!event.target.value) {
         setConfirmPasswordErr("This field must not be empty");
       }
     } else {
@@ -96,8 +98,8 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
     }
   };
 
-  const blurHandler = (e: any) => {
-    switch (e.target.name) {
+  const blurHandler = (event: any) => {
+    switch (event.target.name) {
       case "userName":
         setUserNameDirty(true);
         break;
@@ -114,24 +116,21 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
     }
   };
 
-  const onSubmit = () => {
+  const onSubmit = (event: any) => {
+    event.preventDefault();
     const callback = () => {
-      navigate("/confirm", {
-        state: {
-          email,
-        },
-      });
+      navigate("/activate");
     };
     dispatch(
-      registerUser({ name: userName, password: password, email: email, callback })
+      registerUser({
+        name: userName,
+        password: password,
+        email: email,
+        callback,
+      })
     );
-
-    navigate("/confirm", {
-      state: {
-        email,
-      },
-    });
   };
+
 
   return (
     <div
@@ -140,12 +139,13 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
         { ["darkContainer"]: !isLightTheme }
       )}
     >
-      <form onSubmit={onSubmit}>
+      <form>
         <div className="input">
+          
           <span>User name</span>
           <Input
             value={userName}
-            onBlur={(e) => blurHandler(e)}
+            onBlur={(event) => blurHandler(event)}
             onChange={userNameHandler}
             type="text"
             name="userName"
@@ -155,11 +155,12 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
           )}
         </div>
         <div className="input">
+          
           <span>Email</span>
           <Input
             value={email}
-            onBlur={(e) => blurHandler(e)}
-            onChange={(e) => emailHandler(e)}
+            onBlur={(event) => blurHandler(event)}
+            onChange={(event) => emailHandler(event)}
             type="email"
             name="email"
           />
@@ -168,11 +169,12 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
           )}
         </div>
         <div className="input">
+          
           <span>Password</span>
           <Input
             value={password}
-            onBlur={(e) => blurHandler(e)}
-            onChange={(e) => passwordHandler(e)}
+            onBlur={(event) => blurHandler(event)}
+            onChange={(event) => passwordHandler(event)}
             type="password"
             name="password"
           />
@@ -181,11 +183,12 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
           )}
         </div>
         <div className="input">
+          
           <span>Confirm password</span>
           <Input
             value={confirmPassword}
-            onBlur={(e) => blurHandler(e)}
-            onChange={(e) => confirmPasswordHandler(e)}
+            onBlur={(event) => blurHandler(event)}
+            onChange={(event) => confirmPasswordHandler(event)}
             type="password"
             name="confirmPassword"
           />
@@ -197,7 +200,7 @@ const FormRegistration: FC<FormRegistrationProps> = ({ onClick }) => {
         <Button
           disabled={!formValid}
           className={classnames("button")}
-          btnContent="Registration"
+          btnContent={"Registration"}
           onClick={onSubmit}
         />
 

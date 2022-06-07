@@ -1,4 +1,3 @@
-import { castDraft } from "immer";
 import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
 import { Card } from "./../../common/type";
 
@@ -54,6 +53,7 @@ const postsSlice = createSlice({
       state.postsTab = action.payload;
     },
     loadPost: (state, action) => {},
+    loadData: (state, action) => {},
     setPost: (state, action) => {
       state.selectedPost = action.payload;
     },
@@ -73,6 +73,7 @@ export const {
   setSavedPost,
   setPostsTab,
   loadPost,
+  loadData,
   setPost,
   setAllPostsLoading,
   setSinglePostLoading,
@@ -100,5 +101,5 @@ export const PostSelectors = {
   },
   getSelectedPost: (state: any) => state.posts.selectedPost,
   getAllPostsLoading: (state: any) => state.posts.isAllPostsLoading,
-  getSinglePostLoading: (state: any) => state.posts.isAllPostsLoading,
+  getSinglePostLoading: (state: any) => state.posts.isSinglePostLoading,
 };

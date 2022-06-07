@@ -18,7 +18,7 @@ type PostCardProps = {
   text: string;
   date: string;
   isBig?: boolean;
-  onClick?: () => void;
+  onClick?: (event: any) => void;
   likeStatus?: LikeStatus | null;
   saved?: boolean;
 };
@@ -46,9 +46,12 @@ const PostCard: FC<PostCardProps> = ({
     dispatch(setSelectedImage(image));
   };
 
-  const handleButtonClick = (action: string) => {
+  const handleButtonClick = (action: string, event: any) => {
+    event.stopPropagation();
     if (action === LikeStatus.Like || action === LikeStatus.Dislike) {
-      dispatch(setLikePost({ id, action }));
+      dispatch(
+        setLikePost({ id, action: likeStatus === action ? null : action })
+      );
     } else if (action === LikeStatus.Save || action === "unset") {
       dispatch(setSavedPost({ id, action }));
     }
@@ -81,7 +84,7 @@ const PostCard: FC<PostCardProps> = ({
         </div>
         <div>
           <Button
-            onClick={() => handleButtonClick(LikeStatus.Like)}
+            onClick={(event: any) => handleButtonClick(LikeStatus.Like, event)}
             className={classnames("btnIcon", "fa-regular", "fa-thumbs-up", {
               ["activeLike"]: likeStatus === LikeStatus.Like,
             })}
@@ -89,7 +92,9 @@ const PostCard: FC<PostCardProps> = ({
           />
 
           <Button
-            onClick={() => handleButtonClick(LikeStatus.Dislike)}
+            onClick={(event: any) =>
+              handleButtonClick(LikeStatus.Dislike, event)
+            }
             className={classnames("btnIcon", "fa-regular", "fa-thumbs-down", {
               ["activeDislike"]: likeStatus === LikeStatus.Dislike,
             })}
@@ -97,7 +102,9 @@ const PostCard: FC<PostCardProps> = ({
           />
 
           <Button
-            onClick={() => handleButtonClick(saved ? "unset" : "save")}
+            onClick={(event: any) =>
+              handleButtonClick(saved ? "unset" : "save", event)
+            }
             className={classnames("btnIcon", "fa-solid", "fa-bookmark", {
               ["activeSave"]: saved,
             })}

@@ -7,7 +7,6 @@ const ToggleSwitch = () => {
 
   const onClickTheme = () => {
     onChangeTheme(theme === "light" ? Theme.Dark : Theme.Light);
-    console.log(theme);
   };
 
   return (

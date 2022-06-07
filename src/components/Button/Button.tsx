@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import "./Button.css";
 
 type ButtonProps = {
-  onClick?: () => void;
+  onClick?: (event:any) => void;
   className?: string;
   btnContent: any;
   disabled?: boolean;
