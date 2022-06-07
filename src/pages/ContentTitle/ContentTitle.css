@@ -1,0 +1,15 @@
+.contentTitle {
+  padding: 0 auto;
+  height: 100vh;
+  padding-top: 10px;
+}
+.headerTitle {
+  font-size: 36px;
+}
+.content_title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-content: center;
+  align-items: center;
+}

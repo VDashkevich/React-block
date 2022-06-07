@@ -1,0 +1,45 @@
+import React from "react";
+import "./HeaderPages.css";
+import Sidebar from "../Sidebar";
+import classnames from "classnames";
+import { Theme, UseThemeContext } from "./../../context/themeModeContext";
+import ToggleSwitch from "../ToggleSwitch";
+import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AuthSelector } from "../../redux/reducers/authReducer";
+
+const HeaderPages = () => {
+  const { theme } = UseThemeContext();
+  const isLightTheme = theme === Theme.Light;
+  const authUserName = useSelector(AuthSelector.getAuthUserName);
+
+  return (
+    <div>
+      <header
+        className={classnames("App", "headerPosition", {
+          ["headerLight"]: isLightTheme,
+          ["darkHeader"]: !isLightTheme,
+        })}
+        id="outer-container"
+      >
+        <Sidebar
+          pageWrapId={"page-wrap"}
+          outerContainerId={"outer-container"}
+        />
+        <div id="page-wrap">
+          <div className="headerPages">
+            <span>
+              <i className="fa-solid fa-user headerItem"></i>
+            </span>
+            <span className="headerItem">Username</span>
+          </div>
+
+          <ToggleSwitch />
+        </div>
+      </header>
+      <Outlet />
+    </div>
+  );
+};
+
+export default HeaderPages;
