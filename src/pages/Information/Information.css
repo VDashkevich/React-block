@@ -1,0 +1,31 @@
+.Information {
+  padding-left: 130px;
+  min-height: 100vh;
+  align-items: center;
+}
+.informationTitle {
+  text-align: center;
+  margin: 0 auto 10px;
+  padding-top: 10px;
+}
+.textContainer {
+  max-width: 560px;
+  min-height: 320px;
+  background-color: #d5ddef;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px auto;
+  border: solid 3px #197278;
+  border-radius: 8px;
+  font-size: 24px;
+}
+.tabsContainer {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.textContainerDark {
+  background-color: #197278;
+  color: #EDDDD4;
+}
