@@ -1,0 +1,78 @@
+.postCard {
+  width: 300px;
+  min-height: 380px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 8px;
+  margin: 20px;
+  cursor: pointer;
+  border: solid 2px #197278;
+  border-radius: 8px;
+}
+.postsImg {
+  width: 250px;
+  height: 140px;
+  border-radius: 8px;
+}
+.singleCard {
+  width: 420px;
+  min-height: 440px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 8px;
+  margin: 20px;
+  border: solid 3px #197278;
+  border-radius: 8px;
+}
+
+.postsText {
+  font-size: 14px;
+  color: #c44536;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.postTextIsBig {
+  font-size: 16px;
+  color: grey;
+}
+.postsDate {
+  font-size: 14px;
+  color: #197278;
+  text-align: left;
+}
+.fa-eye {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #197278;
+}
+.fa-regular,
+.fa-solid {
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #c44536;
+}
+.footerCard {
+  display: flex;
+  justify-content: space-between;
+}
+.activeLike {
+  color: green;
+}
+.activeDislike {
+  color: red;
+}
+.activeSave {
+  color: yellow;
+}
+.btnIcon {
+  border: none;
+  background: transparent;
+}

@@ -1,0 +1,18 @@
+.emptyStateContainer {
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.emptyStateTitleDark {
+  color: #197278;
+  font-size: 24px;
+  font-weight: bold;
+}
+.emptyStateTitle {
+  font-size: 30px;
+  color: #c44536;
+  font-weight: bold;
+}
+
