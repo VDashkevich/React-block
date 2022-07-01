@@ -18,7 +18,7 @@ type PostCardProps = {
   text: string;
   date: string;
   isBig?: boolean;
-  onClick?: (event: any) => void;
+  onClick?: (e: any) => void;
   likeStatus?: LikeStatus | null;
   saved?: boolean;
 };
@@ -46,11 +46,15 @@ const PostCard: FC<PostCardProps> = ({
     dispatch(setSelectedImage(image));
   };
 
-  const handleButtonClick = (action: string, event: any) => {
-    event.stopPropagation();
+  const handleButtonClick = (action: string, e: any) => {
+    e.stopPropagation();
+
     if (action === LikeStatus.Like || action === LikeStatus.Dislike) {
       dispatch(
-        setLikePost({ id, action: likeStatus === action ? null : action })
+        setLikePost({
+          id,
+          action: likeStatus === action ? null : action,
+          })
       );
     } else if (action === LikeStatus.Save || action === "unset") {
       dispatch(setSavedPost({ id, action }));
@@ -82,35 +86,35 @@ const PostCard: FC<PostCardProps> = ({
             className="fa-solid fa-eye"
           ></i>
         </div>
-        <div>
-          <Button
-            onClick={(event: any) => handleButtonClick(LikeStatus.Like, event)}
-            className={classnames("btnIcon", "fa-regular", "fa-thumbs-up", {
-              ["activeLike"]: likeStatus === LikeStatus.Like,
-            })}
-            btnContent=""
-          />
+        {!isBig && (
+          <div>
+            <Button
+              onClick={(e: any) => handleButtonClick(LikeStatus.Like, e)}
+              className={classnames("btnIcon", "fa-regular", "fa-thumbs-up", {
+                ["activeLike"]: likeStatus === LikeStatus.Like,
+              })}
+              btnContent=""
+            />
 
-          <Button
-            onClick={(event: any) =>
-              handleButtonClick(LikeStatus.Dislike, event)
-            }
-            className={classnames("btnIcon", "fa-regular", "fa-thumbs-down", {
-              ["activeDislike"]: likeStatus === LikeStatus.Dislike,
-            })}
-            btnContent=""
-          />
+            <Button
+              onClick={(e: any) => handleButtonClick(LikeStatus.Dislike, e)}
+              className={classnames("btnIcon", "fa-regular", "fa-thumbs-down", {
+                ["activeDislike"]: likeStatus === LikeStatus.Dislike,
+              })}
+              btnContent=""
+            />
 
-          <Button
-            onClick={(event: any) =>
-              handleButtonClick(saved ? "unset" : "save", event)
-            }
-            className={classnames("btnIcon", "fa-solid", "fa-bookmark", {
-              ["activeSave"]: saved,
-            })}
-            btnContent=""
-          />
-        </div>
+            <Button
+              onClick={(e: any) =>
+                handleButtonClick(saved ? "unset" : "save", e)
+              }
+              className={classnames("btnIcon", "fa-solid", "fa-bookmark", {
+                ["activeSave"]: saved,
+              })}
+              btnContent=""
+            />
+          </div>
+        )}
       </div>
     </div>
   );

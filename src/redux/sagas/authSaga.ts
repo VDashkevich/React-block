@@ -8,16 +8,11 @@ import {
   userActivate,
   loginUser,
   setLogStatus,
-  getUserInfo,
-  setAuthUserName,
   setIsLoginUserLoading,
+  logout,
 } from "../reducers/authReducer";
-import {
-  registerUserApi,
-  userActivateApi,
-  loginUserApi,
-  getUserInfoApi,
-} from "../api/index";
+import { registerUserApi, userActivateApi, loginUserApi } from "../api/index";
+import { useNavigate } from "react-router-dom";
 
 function* registerUserWorker(action: PayloadAction<RegisterUser>) {
   const { callback, email, name, password } = action.payload;
@@ -48,6 +43,8 @@ function* userActivateWorker(action: any) {
 function* loginUserWorker(action: any) {
   yield put(setIsLoginUserLoading(true));
   const userData = action.payload;
+  console.log(userData);
+
   const { status, data, problem } = yield call(loginUserApi, userData);
   if (status === 200) {
     localStorage.setItem("jwtAccessToken", data.access);
@@ -58,20 +55,17 @@ function* loginUserWorker(action: any) {
   }
   yield put(setIsLoginUserLoading(false));
 }
-function* getUserInfoWorker(action: any) {
-  const accessToken = localStorage.getItem("jwtAccessToken");
-  const { status, data, problem } = yield call(getUserInfoApi, accessToken);
-  console.log(status);
-  if (status === 200) {
-    yield put(setAuthUserName(data.username));
-  }
-  console.log(data.username);
+export function* logoutWorker(action: any) {
+  localStorage.removeItem("jwtAccessToken");
+  localStorage.removeItem("jwtRefreshToken");
+  yield put(setLogStatus(false));
 }
+
 export default function* authWatcher() {
   yield all([
     takeLatest(registerUser, registerUserWorker),
     takeLatest(userActivate, userActivateWorker),
     takeLatest(loginUser, loginUserWorker),
-    takeLatest(getUserInfo, getUserInfoWorker),
+    takeLatest(logout, logoutWorker),
   ]);
 }

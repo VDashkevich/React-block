@@ -9,8 +9,8 @@ import {
 import postsReducer from "./reducers/postsReducer";
 import authReducer from "./reducers/authReducer";
 import createSagaMiddleware from "redux-saga";
-import { applyMiddleware } from "redux";
 import rootSaga from "./sagas/rootSaga";
+import userReducer from "./reducers/userReducer";
 
 declare global {
   interface Window {
@@ -26,6 +26,7 @@ const rootReducer = combineReducers({
   activeTabs: activeInfoTabsReducer,
   posts: postsReducer,
   auth: authReducer,
+  user: userReducer,
 });
 
 export const store = configureStore({

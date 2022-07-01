@@ -7,7 +7,9 @@ import Confirmation from "../Confirmation";
 import ContentTitle from "../ContentTitle";
 import Information from "../Information";
 import MyPosts from "../MyPosts";
-import { AuthSelector, getUserInfo } from "../../redux/reducers/authReducer";
+import { AuthSelector } from "../../redux/reducers/authReducer";
+import { getUserInfo } from "../../redux/reducers/userReducer";
+import AddPost from "../AddPost";
 
 const Router = () => {
   const isLoggedIn = useSelector(AuthSelector.getLogStatus);
@@ -22,8 +24,19 @@ const Router = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path={"/"} element={<HeaderPages />}>
-            <Route path={"/cards-list"} element={<MyPosts />}></Route>
+            <Route
+              path={"/cards-list"}
+              element={<MyPosts isPersonal={false} />}
+            ></Route>
+            <Route
+              path={"/cards-list-my"}
+              element={<MyPosts isPersonal />}
+            ></Route>
+            <Route path={"/cards-list-my/:id"} element={<ContentTitle />} />
+
             <Route path={"/cards-list/:id"} element={<ContentTitle />} />
+            <Route path={"/add-post"} element={<AddPost />} />
+
             <Route path={"/info"} element={<Information />}></Route>
           </Route>
           <Route path={"*"} element={<Navigate to={"/cards-list"} replace />} />

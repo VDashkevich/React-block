@@ -7,16 +7,13 @@ import { loginUser } from "../../redux/reducers/authReducer";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const [emailDirty, setEmailDirty] = useState(false);
-  const [passwordDirty, setPasswordDirty] = useState(false);
-
   const [emailErr, setEmailErr] = useState("This field must not be empty");
+  const [password, setPassword] = useState("");
+  const [passwordDirty, setPasswordDirty] = useState(false);
   const [passwordErr, setPasswordErr] = useState(
     "This field must not be empty"
   );
-
   const [formValid, setFormValid] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,10 +26,11 @@ const FormLogin = () => {
   }, [emailErr, passwordErr]);
 
   const emailHandler = (e: any) => {
-
     setEmail(e.target.value);
+
     const re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailErr("Email is not correct");
     } else {
@@ -42,6 +40,7 @@ const FormLogin = () => {
 
   const passwordHandler = (e: any) => {
     setPassword(e.target.value);
+
     if (e.target.value.length < 8 || e.target.value.length > 15) {
       setPasswordErr(
         "Password must contain at least 8 symbols and no more than 15 symbols"
@@ -68,6 +67,7 @@ const FormLogin = () => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));
   };
+
   return (
     <div>
       <form className="loginForm">

@@ -4,13 +4,13 @@ import "./Authorization.css";
 import FormLogin from "../../components/FormLogin";
 import FormRegistration from "../../components/FormRegistration";
 import HeaderAuth from "../../components/HeaderAuth";
-import ToggleSwitch from "../../components/ToggleSwitch";
 import { Theme, UseThemeContext } from "./../../context/themeModeContext";
+import ToggleSwitch from "../../components/ToggleSwitch";
 import Lottie from "react-lottie";
 import animationData from "../../components/Lotties/LoadingAnimation.json";
 
 import { useSelector } from "react-redux";
-import { AuthSelector } from "../../redux/reducers/authReducer";
+import { UserSelector } from "../../redux/reducers/userReducer";
 
 const Authorization = () => {
   const { theme } = UseThemeContext();
@@ -25,7 +25,7 @@ const Authorization = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  const loginUserLoading = useSelector(AuthSelector.getIsLoginUserLoading);
+  const loginUserLoading = useSelector(UserSelector.getIsLoginUserLoading);
 
   const onClickLogin = (name: string) => {
     setActiveTab(name);
